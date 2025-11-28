@@ -3,7 +3,7 @@ import { Filters } from "@/components/Filters";
 import { AppGrid } from "@/components/AppGrid";
 import { db } from "@/db";
 import { apps } from "@/db/schema";
-import { like, and, eq, or, desc } from "drizzle-orm";
+import { like, and, eq, or, desc, sql } from "drizzle-orm";
 
 export const dynamic = 'force-dynamic';
 
@@ -12,6 +12,8 @@ interface HomeProps {
     search?: string;
     category?: string;
     platform?: string;
+    pricing?: string;
+    tag?: string;
   }>;
 }
 
@@ -20,6 +22,8 @@ export default async function Home({ searchParams }: HomeProps) {
   const search = params.search;
   const category = params.category;
   const platform = params.platform;
+  const pricing = params.pricing;
+  const tag = params.tag;
 
   let results = [];
   let error = null;
@@ -44,6 +48,18 @@ export default async function Home({ searchParams }: HomeProps) {
 
     if (platform) {
       conditions.push(eq(apps.platform, platform));
+    }
+
+    // Pricing filter
+    if (pricing === 'free') {
+      conditions.push(eq(apps.isPaid, false));
+    } else if (pricing === 'paid') {
+      conditions.push(eq(apps.isPaid, true));
+    }
+
+    // Tag filter
+    if (tag) {
+      conditions.push(sql`json_array_length(${apps.tags}) > 0 AND json_extract(${apps.tags}, '$') LIKE ${'%' + tag + '%'}`);
     }
 
     let query = db.select().from(apps);

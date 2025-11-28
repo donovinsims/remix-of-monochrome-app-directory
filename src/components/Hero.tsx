@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useDebounce } from "@/hooks/use-debounce";
+import { cn } from "@/lib/utils";
 
 export function Hero() {
   const router = useRouter();
@@ -30,6 +32,18 @@ export function Hero() {
     }
   }, [debouncedQuery, router, searchParams]);
 
+  const handleQuickFilter = (filter: string) => {
+    const params = new URLSearchParams();
+    if (filter === 'free') {
+      params.set('pricing', 'free');
+    } else if (filter === 'paid') {
+      params.set('pricing', 'paid');
+    } else if (filter === 'new') {
+      params.set('tag', 'New');
+    }
+    router.push(`/?${params.toString()}`);
+  };
+
   const MotionH1 = mounted ? motion.h1 : "h1";
   const MotionP = mounted ? motion.p : "p";
   const MotionDiv = mounted ? motion.div : "div";
@@ -48,7 +62,7 @@ export function Hero() {
             transition: { duration: 0.5 }
           })}
           className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          The Best <span className="text-zinc-400 dark:text-zinc-600">Free Apps</span>
+          Curated <span className="text-zinc-400 dark:text-zinc-600">iOS & macOS Apps</span>
         </MotionH1>
 
         <MotionP
@@ -58,7 +72,7 @@ export function Hero() {
             transition: { duration: 0.5, delay: 0.1 }
           })}
           className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-          Discover the finest collection of free, high-quality applications designed to elevate your productivity and creativity.
+          Hand-picked free and premium apps, personally verified for quality
         </MotionP>
 
         <MotionDiv
@@ -80,6 +94,48 @@ export function Hero() {
                 onChange={(e) => setQuery(e.target.value)} />
             </div>
           </div>
+        </MotionDiv>
+
+        <MotionDiv
+          {...(mounted && {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.5, delay: 0.3 }
+          })}
+          className="flex flex-wrap justify-center gap-3 pt-4">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => handleQuickFilter('free')}
+            className={cn(
+              "rounded-full border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900",
+              searchParams.get('pricing') === 'free' && "bg-zinc-100 dark:bg-zinc-900"
+            )}
+          >
+            Free Apps
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => handleQuickFilter('new')}
+            className={cn(
+              "rounded-full border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900",
+              searchParams.get('tag') === 'New' && "bg-zinc-100 dark:bg-zinc-900"
+            )}
+          >
+            New & Innovative
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => handleQuickFilter('paid')}
+            className={cn(
+              "rounded-full border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900",
+              searchParams.get('pricing') === 'paid' && "bg-zinc-100 dark:bg-zinc-900"
+            )}
+          >
+            Premium Picks
+          </Button>
         </MotionDiv>
       </div>
     </section>

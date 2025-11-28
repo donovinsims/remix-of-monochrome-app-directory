@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Search, Menu, User, LogOut, Settings, Bookmark } from "lucide-react";
+import { Search, Menu, User, LogOut, Settings, Bookmark, ChevronDown } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 import { toast } from "sonner";
 
@@ -51,9 +54,9 @@ export default function Navigation() {
   };
 
   const navLinks = [
-    { href: "/", label: "Discover" },
-    { href: "/?platform=macOS", label: "macOS" },
-    { href: "/?platform=iOS", label: "iOS" },
+    { href: "/workflows", label: "Workflows" },
+    { href: "/repos", label: "Repos" },
+    { href: "/mcps", label: "MCPs" },
   ];
 
   return (
@@ -76,6 +79,26 @@ export default function Navigation() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 transition-colors hover:text-black dark:hover:text-white">
+              Apps <ChevronDown className="h-3.5 w-3.5" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              <DropdownMenuItem asChild>
+                <Link href="/">All Apps</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/?pricing=free">Free Apps</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/?pricing=paid">Paid Apps</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/?tag=New">New & Innovative</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -88,17 +111,29 @@ export default function Navigation() {
               {link.label}
             </Link>
           ))}
+          
           {session && (
-            <Link
-              href="/bookmarks"
-              className={cn(
-                "transition-colors hover:text-black dark:hover:text-white flex items-center gap-1.5",
-                pathname === "/bookmarks" && "text-black dark:text-white"
-              )}
-            >
-              <Bookmark className="h-4 w-4" />
-              Bookmarks
-            </Link>
+            <>
+              <Link
+                href="/bookmarks"
+                className={cn(
+                  "transition-colors hover:text-black dark:hover:text-white flex items-center gap-1.5",
+                  pathname === "/bookmarks" && "text-black dark:text-white"
+                )}
+              >
+                <Bookmark className="h-4 w-4" />
+                Bookmarks
+              </Link>
+              <Link
+                href="/settings"
+                className={cn(
+                  "transition-colors hover:text-black dark:hover:text-white",
+                  pathname === "/settings" && "text-black dark:text-white"
+                )}
+              >
+                Settings
+              </Link>
+            </>
           )}
         </nav>
 
@@ -195,6 +230,12 @@ export default function Navigation() {
                 </form>
 
                 <nav className="flex flex-col gap-4">
+                  <Link
+                    href="/"
+                    className="text-lg font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
+                  >
+                    Apps
+                  </Link>
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -206,13 +247,21 @@ export default function Navigation() {
                   ))}
                   
                   {session && (
-                    <Link
-                      href="/bookmarks"
-                      className="text-lg font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-2"
-                    >
-                      <Bookmark className="h-5 w-5" />
-                      Bookmarks
-                    </Link>
+                    <>
+                      <Link
+                        href="/bookmarks"
+                        className="text-lg font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-2"
+                      >
+                        <Bookmark className="h-5 w-5" />
+                        Bookmarks
+                      </Link>
+                      <Link
+                        href="/settings"
+                        className="text-lg font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
+                      >
+                        Settings
+                      </Link>
+                    </>
                   )}
                   
                   {!session && (
@@ -235,13 +284,7 @@ export default function Navigation() {
                   
                   {session && (
                     <>
-                       <div className="h-px bg-zinc-200 dark:bg-zinc-800 my-2" />
-                       <Link
-                        href="/settings"
-                        className="text-lg font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
-                      >
-                        Settings
-                      </Link>
+                      <div className="h-px bg-zinc-200 dark:bg-zinc-800 my-2" />
                       <button
                         onClick={handleSignOut}
                         className="text-lg font-medium text-left text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
