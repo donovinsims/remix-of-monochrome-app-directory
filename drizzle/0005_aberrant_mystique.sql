@@ -1,0 +1,1 @@
+ALTER TABLE `apps` ADD `price` text DEFAULT 'Free' NOT NULL;
