@@ -1,0 +1,218 @@
+/**
+ * Atomize Design System v3.0 - Design Tokens
+ * Extracted from Figma and mapped to CSS custom properties
+ * Based on 4pt grid system with monochrome palette
+ */
+
+:root {
+  /* ===========================
+     ATOMIZE COLOR TOKENS (Light Mode)
+     =========================== */
+  
+  /* Base Colors - Neutral Scale (Monochrome) */
+  --atomize-neutral-0: oklch(1 0 0);           /* Pure White */
+  --atomize-neutral-50: oklch(0.985 0 0);      /* Off White */
+  --atomize-neutral-100: oklch(0.97 0 0);      /* Light Gray */
+  --atomize-neutral-200: oklch(0.922 0 0);     /* Gray 200 */
+  --atomize-neutral-300: oklch(0.85 0 0);      /* Gray 300 */
+  --atomize-neutral-400: oklch(0.708 0 0);     /* Medium Gray */
+  --atomize-neutral-500: oklch(0.556 0 0);     /* Gray 500 */
+  --atomize-neutral-600: oklch(0.445 0 0);     /* Gray 600 */
+  --atomize-neutral-700: oklch(0.33 0 0);      /* Dark Gray */
+  --atomize-neutral-800: oklch(0.269 0 0);     /* Charcoal */
+  --atomize-neutral-900: oklch(0.205 0 0);     /* Near Black */
+  --atomize-neutral-950: oklch(0.145 0 0);     /* Pure Black */
+  
+  /* Semantic Surface Colors */
+  --atomize-surface-primary: var(--atomize-neutral-0);
+  --atomize-surface-secondary: var(--atomize-neutral-50);
+  --atomize-surface-tertiary: var(--atomize-neutral-100);
+  --atomize-surface-elevated: var(--atomize-neutral-0);
+  --atomize-surface-overlay: oklch(0 0 0 / 60%);
+  
+  /* Semantic Text Colors */
+  --atomize-text-primary: var(--atomize-neutral-950);
+  --atomize-text-secondary: var(--atomize-neutral-500);
+  --atomize-text-tertiary: var(--atomize-neutral-400);
+  --atomize-text-disabled: var(--atomize-neutral-300);
+  --atomize-text-inverted: var(--atomize-neutral-0);
+  
+  /* Semantic Border Colors */
+  --atomize-border-primary: var(--atomize-neutral-200);
+  --atomize-border-secondary: var(--atomize-neutral-100);
+  --atomize-border-focus: var(--atomize-neutral-900);
+  --atomize-border-error: oklch(0.577 0.245 27.325);
+  
+  /* Semantic Interactive Colors */
+  --atomize-interactive-primary: var(--atomize-neutral-900);
+  --atomize-interactive-primary-hover: var(--atomize-neutral-800);
+  --atomize-interactive-secondary: var(--atomize-neutral-100);
+  --atomize-interactive-secondary-hover: var(--atomize-neutral-200);
+  
+  /* Accent Colors (Minimal for badges/highlights) */
+  --atomize-accent-blue: oklch(0.6 0.118 184.704);
+  --atomize-accent-purple: oklch(0.488 0.243 264.376);
+  --atomize-accent-gold: oklch(0.828 0.189 84.429);
+  
+  /* ===========================
+     ATOMIZE SPACING TOKENS (4pt grid)
+     =========================== */
+  --atomize-spacing-0: 0;
+  --atomize-spacing-1: 4px;
+  --atomize-spacing-2: 8px;
+  --atomize-spacing-3: 12px;
+  --atomize-spacing-4: 16px;
+  --atomize-spacing-5: 20px;
+  --atomize-spacing-6: 24px;
+  --atomize-spacing-7: 28px;
+  --atomize-spacing-8: 32px;
+  --atomize-spacing-10: 40px;
+  --atomize-spacing-12: 48px;
+  --atomize-spacing-14: 56px;
+  --atomize-spacing-16: 64px;
+  --atomize-spacing-20: 80px;
+  --atomize-spacing-24: 96px;
+  
+  /* ===========================
+     ATOMIZE TYPOGRAPHY TOKENS
+     =========================== */
+  
+  /* Font Families */
+  --atomize-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+  --atomize-font-mono: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  
+  /* Font Sizes */
+  --atomize-font-size-display-lg: 48px;
+  --atomize-font-size-display-md: 40px;
+  --atomize-font-size-display-sm: 32px;
+  --atomize-font-size-heading-xl: 28px;
+  --atomize-font-size-heading-lg: 24px;
+  --atomize-font-size-heading-md: 20px;
+  --atomize-font-size-heading-sm: 18px;
+  --atomize-font-size-body-lg: 16px;
+  --atomize-font-size-body-md: 14px;
+  --atomize-font-size-body-sm: 12px;
+  --atomize-font-size-caption: 11px;
+  
+  /* Font Weights */
+  --atomize-font-weight-regular: 400;
+  --atomize-font-weight-medium: 500;
+  --atomize-font-weight-semibold: 600;
+  --atomize-font-weight-bold: 700;
+  
+  /* Line Heights */
+  --atomize-line-height-tight: 1.2;
+  --atomize-line-height-snug: 1.3;
+  --atomize-line-height-normal: 1.5;
+  --atomize-line-height-relaxed: 1.75;
+  
+  /* Letter Spacing */
+  --atomize-letter-spacing-tight: -0.02em;
+  --atomize-letter-spacing-normal: 0em;
+  --atomize-letter-spacing-wide: 0.02em;
+  
+  /* ===========================
+     ATOMIZE BORDER RADIUS TOKENS
+     =========================== */
+  --atomize-radius-none: 0;
+  --atomize-radius-xs: 2px;
+  --atomize-radius-sm: 4px;
+  --atomize-radius-md: 8px;
+  --atomize-radius-lg: 12px;
+  --atomize-radius-xl: 16px;
+  --atomize-radius-2xl: 20px;
+  --atomize-radius-3xl: 24px;
+  --atomize-radius-full: 9999px;
+  
+  /* ===========================
+     ATOMIZE ELEVATION TOKENS (Shadows)
+     =========================== */
+  --atomize-shadow-none: none;
+  --atomize-shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+  --atomize-shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.10), 0 1px 2px -1px oklch(0 0 0 / 0.10);
+  --atomize-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.10), 0 2px 4px -2px oklch(0 0 0 / 0.10);
+  --atomize-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.10), 0 4px 6px -4px oklch(0 0 0 / 0.10);
+  --atomize-shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.10), 0 8px 10px -6px oklch(0 0 0 / 0.10);
+  --atomize-shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.25);
+  --atomize-shadow-inner: inset 0 2px 4px 0 oklch(0 0 0 / 0.05);
+  
+  /* Elevation Semantic */
+  --atomize-elevation-card: var(--atomize-shadow-sm);
+  --atomize-elevation-card-hover: var(--atomize-shadow-md);
+  --atomize-elevation-dropdown: var(--atomize-shadow-lg);
+  --atomize-elevation-modal: var(--atomize-shadow-xl);
+  --atomize-elevation-toast: var(--atomize-shadow-2xl);
+  
+  /* ===========================
+     ATOMIZE ANIMATION TOKENS
+     =========================== */
+  --atomize-duration-instant: 100ms;
+  --atomize-duration-fast: 200ms;
+  --atomize-duration-normal: 300ms;
+  --atomize-duration-slow: 500ms;
+  
+  --atomize-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --atomize-easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --atomize-easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  
+  /* ===========================
+     ATOMIZE COMPONENT TOKENS
+     =========================== */
+  
+  /* Button */
+  --atomize-button-padding-sm: var(--atomize-spacing-2) var(--atomize-spacing-3);
+  --atomize-button-padding-md: var(--atomize-spacing-3) var(--atomize-spacing-4);
+  --atomize-button-padding-lg: var(--atomize-spacing-4) var(--atomize-spacing-6);
+  --atomize-button-radius: var(--atomize-radius-lg);
+  
+  /* Input */
+  --atomize-input-padding: var(--atomize-spacing-3) var(--atomize-spacing-4);
+  --atomize-input-radius: var(--atomize-radius-md);
+  --atomize-input-border: 1px solid var(--atomize-border-primary);
+  
+  /* Card */
+  --atomize-card-padding: var(--atomize-spacing-6);
+  --atomize-card-radius: var(--atomize-radius-xl);
+  --atomize-card-border: 1px solid var(--atomize-border-primary);
+  
+  /* Touch Targets (44×44px minimum - iOS) */
+  --atomize-touch-target-min: 44px;
+}
+
+/* ===========================
+   DARK MODE OVERRIDES
+   =========================== */
+.dark {
+  /* Surface Colors (Dark) */
+  --atomize-surface-primary: var(--atomize-neutral-950);
+  --atomize-surface-secondary: var(--atomize-neutral-900);
+  --atomize-surface-tertiary: var(--atomize-neutral-800);
+  --atomize-surface-elevated: var(--atomize-neutral-900);
+  --atomize-surface-overlay: oklch(1 0 0 / 10%);
+  
+  /* Text Colors (Dark) */
+  --atomize-text-primary: var(--atomize-neutral-50);
+  --atomize-text-secondary: var(--atomize-neutral-400);
+  --atomize-text-tertiary: var(--atomize-neutral-500);
+  --atomize-text-disabled: var(--atomize-neutral-600);
+  --atomize-text-inverted: var(--atomize-neutral-950);
+  
+  /* Border Colors (Dark) */
+  --atomize-border-primary: oklch(1 0 0 / 10%);
+  --atomize-border-secondary: oklch(1 0 0 / 5%);
+  --atomize-border-focus: var(--atomize-neutral-50);
+  
+  /* Interactive Colors (Dark) */
+  --atomize-interactive-primary: var(--atomize-neutral-50);
+  --atomize-interactive-primary-hover: var(--atomize-neutral-100);
+  --atomize-interactive-secondary: var(--atomize-neutral-800);
+  --atomize-interactive-secondary-hover: var(--atomize-neutral-700);
+  
+  /* Shadows (Dark - more prominent) */
+  --atomize-shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.3);
+  --atomize-shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.4), 0 1px 2px -1px oklch(0 0 0 / 0.4);
+  --atomize-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.4), 0 2px 4px -2px oklch(0 0 0 / 0.4);
+  --atomize-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.5), 0 4px 6px -4px oklch(0 0 0 / 0.5);
+  --atomize-shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.5), 0 8px 10px -6px oklch(0 0 0 / 0.5);
+  --atomize-shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.6);
+}

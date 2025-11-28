@@ -1,3 +1,9 @@
+/* Updated: 2025-11-28T07:12:29.330Z */
+/* Updated: 2025-11-28T07:05:16.075Z */
+/* Updated: 2025-11-28T07:05:05.115Z */
+/* Updated: 2025-11-28T07:04:32.622Z */
+/* Updated: 2025-11-28T07:03:51.782Z */
+/* Updated: 2025-11-28T06:53:37.395Z */
 /* Updated: 2025-11-28T02:45:44.680Z */
 /* Updated: 2025-11-28T02:35:36.703Z */
 /* Updated: 2025-11-28T01:52:41.892Z */
@@ -21,10 +27,26 @@
 /* Updated: 2025-11-19T01:47:01.259Z */
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../styles/atomize-tokens.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Atomize Design System Integration */
+  --color-atomize-neutral-0: var(--atomize-neutral-0);
+  --color-atomize-neutral-50: var(--atomize-neutral-50);
+  --color-atomize-neutral-100: var(--atomize-neutral-100);
+  --color-atomize-neutral-200: var(--atomize-neutral-200);
+  --color-atomize-neutral-300: var(--atomize-neutral-300);
+  --color-atomize-neutral-400: var(--atomize-neutral-400);
+  --color-atomize-neutral-500: var(--atomize-neutral-500);
+  --color-atomize-neutral-600: var(--atomize-neutral-600);
+  --color-atomize-neutral-700: var(--atomize-neutral-700);
+  --color-atomize-neutral-800: var(--atomize-neutral-800);
+  --color-atomize-neutral-900: var(--atomize-neutral-900);
+  --color-atomize-neutral-950: var(--atomize-neutral-950);
+  
+  /* Backward compatibility with existing variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -65,84 +87,178 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Atomize-mapped base variables (maintaining backward compatibility) */
+  --radius: 0.75rem; /* Updated to match Atomize radius-lg (12px) */
+  
+  /* Map existing variables to Atomize tokens */
+  --background: var(--atomize-surface-primary);
+  --foreground: var(--atomize-text-primary);
+  --card: var(--atomize-surface-elevated);
+  --card-foreground: var(--atomize-text-primary);
+  --popover: var(--atomize-surface-elevated);
+  --popover-foreground: var(--atomize-text-primary);
+  --primary: var(--atomize-interactive-primary);
+  --primary-foreground: var(--atomize-text-inverted);
+  --secondary: var(--atomize-interactive-secondary);
+  --secondary-foreground: var(--atomize-text-primary);
+  --muted: var(--atomize-surface-secondary);
+  --muted-foreground: var(--atomize-text-secondary);
+  --accent: var(--atomize-surface-tertiary);
+  --accent-foreground: var(--atomize-text-primary);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: var(--atomize-border-primary);
+  --input: var(--atomize-border-primary);
+  --ring: var(--atomize-border-focus);
+  
+  /* Chart colors (keep existing) */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  
+  /* Sidebar colors (mapped to Atomize) */
+  --sidebar: var(--atomize-surface-secondary);
+  --sidebar-foreground: var(--atomize-text-primary);
+  --sidebar-primary: var(--atomize-interactive-primary);
+  --sidebar-primary-foreground: var(--atomize-text-inverted);
+  --sidebar-accent: var(--atomize-surface-tertiary);
+  --sidebar-accent-foreground: var(--atomize-text-primary);
+  --sidebar-border: var(--atomize-border-primary);
+  --sidebar-ring: var(--atomize-border-focus);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  /* Dark mode inherits from Atomize dark theme tokens */
+  --background: var(--atomize-surface-primary);
+  --foreground: var(--atomize-text-primary);
+  --card: var(--atomize-surface-elevated);
+  --card-foreground: var(--atomize-text-primary);
+  --popover: var(--atomize-surface-elevated);
+  --popover-foreground: var(--atomize-text-primary);
+  --primary: var(--atomize-interactive-primary);
+  --primary-foreground: var(--atomize-text-inverted);
+  --secondary: var(--atomize-interactive-secondary);
+  --secondary-foreground: var(--atomize-text-primary);
+  --muted: var(--atomize-surface-secondary);
+  --muted-foreground: var(--atomize-text-secondary);
+  --accent: var(--atomize-surface-tertiary);
+  --accent-foreground: var(--atomize-text-primary);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: var(--atomize-border-primary);
+  --input: var(--atomize-border-primary);
+  --ring: var(--atomize-border-focus);
+  
+  /* Chart colors (keep existing) */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
+  
+  /* Sidebar colors (dark mode) */
+  --sidebar: var(--atomize-surface-elevated);
+  --sidebar-foreground: var(--atomize-text-primary);
   --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-primary-foreground: var(--atomize-text-inverted);
+  --sidebar-accent: var(--atomize-surface-tertiary);
+  --sidebar-accent-foreground: var(--atomize-text-primary);
+  --sidebar-border: var(--atomize-border-primary);
+  --sidebar-ring: var(--atomize-border-focus);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+    font-family: var(--atomize-font-sans);
+    font-size: var(--atomize-font-size-body-md);
+    line-height: var(--atomize-line-height-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Atomize Typography Base Styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--atomize-font-weight-semibold);
+    line-height: var(--atomize-line-height-snug);
+  }
+  
+  h1 {
+    font-size: var(--atomize-font-size-display-sm);
+    letter-spacing: var(--atomize-letter-spacing-tight);
+  }
+  
+  h2 {
+    font-size: var(--atomize-font-size-heading-xl);
+  }
+  
+  h3 {
+    font-size: var(--atomize-font-size-heading-lg);
+  }
+  
+  h4 {
+    font-size: var(--atomize-font-size-heading-md);
+  }
+  
+  p {
+    font-size: var(--atomize-font-size-body-md);
+    line-height: var(--atomize-line-height-normal);
+  }
+  
+  /* Atomize Focus Styles (WCAG 2.1 AA compliant) */
+  *:focus-visible {
+    outline: 2px solid var(--atomize-border-focus);
+    outline-offset: 2px;
+    border-radius: var(--atomize-radius-sm);
+  }
+  
+  /* Atomize Selection Styles */
+  ::selection {
+    background-color: var(--atomize-interactive-primary);
+    color: var(--atomize-text-inverted);
+  }
+  
+  /* Smooth Transitions (Atomize animation tokens) */
+  * {
+    transition-timing-function: var(--atomize-easing-standard);
   }
 }
 
 /* Hide Next.js error overlay portal */
 nextjs-portal {
   display: none !important;
+}
+
+/* Atomize Utility Classes */
+.atomize-surface-primary {
+  background-color: var(--atomize-surface-primary);
+}
+
+.atomize-surface-elevated {
+  background-color: var(--atomize-surface-elevated);
+}
+
+.atomize-text-primary {
+  color: var(--atomize-text-primary);
+}
+
+.atomize-text-secondary {
+  color: var(--atomize-text-secondary);
+}
+
+.atomize-shadow-card {
+  box-shadow: var(--atomize-elevation-card);
+}
+
+.atomize-shadow-card-hover {
+  box-shadow: var(--atomize-elevation-card-hover);
+}
+
+.atomize-transition {
+  transition-duration: var(--atomize-duration-normal);
+  transition-timing-function: var(--atomize-easing-standard);
 }

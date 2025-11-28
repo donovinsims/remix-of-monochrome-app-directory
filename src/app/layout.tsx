@@ -16,8 +16,73 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AppDirectory - Free macOS & iOS Apps",
-  description: "Curated directory of the best free apps for macOS and iOS.",
+  metadataBase: new URL('https://remix-of-monochrome-app-directory.vercel.app'),
+  title: {
+    default: 'Curated iOS & macOS Apps, Workflows & Tools Directory',
+    template: '%s | AppDirectory'
+  },
+  description: 'Discover hand-picked iOS & macOS apps, n8n workflows, GitHub repositories, and MCPs. Free and premium tools curated for quality and innovation. Built with Atomize Design System v3.0.',
+  keywords: [
+    'iOS apps',
+    'macOS apps',
+    'free apps',
+    'paid apps',
+    'premium apps',
+    'n8n workflows',
+    'automation',
+    'GitHub repositories',
+    'MCP',
+    'Model Context Protocol',
+    'curated apps',
+    'app directory',
+    'iOS development',
+    'macOS development',
+    'student apps',
+    'productivity apps',
+    'developer tools',
+    'Atomize Design System'
+  ],
+  authors: [{ name: 'AppDirectory Team' }],
+  creator: 'AppDirectory',
+  publisher: 'AppDirectory',
+  openGraph: {
+    title: 'Curated iOS & macOS Apps, Workflows & Tools Directory',
+    description: 'Discover hand-picked free and premium iOS & macOS tools, n8n workflows, and developer resources',
+    url: 'https://remix-of-monochrome-app-directory.vercel.app',
+    siteName: 'AppDirectory',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AppDirectory - Curated iOS & macOS Apps'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Curated iOS & macOS Apps, Workflows & Tools Directory',
+    description: 'Discover hand-picked free and premium tools for developers and students',
+    images: ['/og-image.png'],
+    creator: '@appdirectory'
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  category: 'technology',
 };
 
 export default function RootLayout({
