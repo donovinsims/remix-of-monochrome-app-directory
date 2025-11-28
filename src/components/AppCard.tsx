@@ -48,7 +48,7 @@ export function AppCard({ app, index }: AppCardProps) {
   const getPriceBadge = () => {
     if (!app.isPaid || app.price === 'Free') {
       return (
-        <Badge className="text-xs bg-[var(--atomize-success-100)] text-[var(--atomize-success-700)] dark:bg-[var(--atomize-success-900)]/50 dark:text-[var(--atomize-success-300)] border border-[var(--atomize-success-300)] dark:border-[var(--atomize-success-700)]">
+        <Badge variant="secondary" className="text-xs">
           Free
         </Badge>
       );
@@ -56,7 +56,7 @@ export function AppCard({ app, index }: AppCardProps) {
     
     if (app.pricingModel === 'Subscription' && app.price) {
       return (
-        <Badge className="text-xs bg-gradient-to-r from-[var(--atomize-primary-500)] to-[var(--atomize-primary-600)] text-white border-0">
+        <Badge variant="default" className="text-xs">
           {formatPrice(app.price)}/mo
         </Badge>
       );
@@ -64,26 +64,13 @@ export function AppCard({ app, index }: AppCardProps) {
     
     if (app.price) {
       return (
-        <Badge className="text-xs bg-gradient-to-r from-[var(--atomize-accent-500)] to-[var(--atomize-accent-600)] text-white border-0">
+        <Badge variant="default" className="text-xs">
           {formatPrice(app.price)}
         </Badge>
       );
     }
     
     return null;
-  };
-
-  // Get category color based on category name
-  const getCategoryColor = () => {
-    const colors: Record<string, string> = {
-      'Productivity': 'from-[var(--atomize-primary-500)] to-[var(--atomize-primary-600)]',
-      'Design': 'from-[var(--atomize-accent-500)] to-[var(--atomize-accent-600)]',
-      'Development': 'from-[var(--atomize-secondary-500)] to-[var(--atomize-secondary-600)]',
-      'Media': 'from-[var(--atomize-warning-500)] to-[var(--atomize-warning-600)]',
-      'Utilities': 'from-[var(--atomize-success-500)] to-[var(--atomize-success-600)]',
-      'Browser': 'from-[var(--atomize-primary-600)] to-[var(--atomize-secondary-600)]',
-    };
-    return colors[app.category] || 'from-[var(--atomize-primary-500)] to-[var(--atomize-secondary-500)]';
   };
 
   return (
@@ -94,14 +81,11 @@ export function AppCard({ app, index }: AppCardProps) {
       className="group relative"
     >
       <Link href={`/apps/${app.slug}`} className="block">
-        <div className="relative atomize-card overflow-hidden">
+        <div className="relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-foreground/20">
           {/* Hero Image Container */}
-          <div className="relative aspect-[4/3] overflow-hidden rounded-t-[var(--atomize-radius-2xl)]">
-            {/* Gradient overlay on top edge */}
-            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/30 to-transparent z-10 pointer-events-none" />
-            
+          <div className="relative aspect-[4/3] overflow-hidden bg-muted">
             {!imageLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--atomize-primary-100)] via-[var(--atomize-secondary-100)] to-[var(--atomize-accent-100)] dark:from-[var(--atomize-primary-900)] dark:via-[var(--atomize-secondary-900)] dark:to-[var(--atomize-accent-900)] animate-pulse" />
+              <div className="absolute inset-0 bg-muted animate-pulse" />
             )}
             
             <Image
@@ -119,46 +103,46 @@ export function AppCard({ app, index }: AppCardProps) {
               }}
             />
             
-            {/* Hover Overlay with vibrant gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--atomize-primary-900)]/90 via-[var(--atomize-primary-800)]/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-end p-5 text-center z-20">
-              <div className="mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <span className={`inline-block px-3 py-1.5 bg-gradient-to-r ${getCategoryColor()} rounded-full text-xs font-medium text-white shadow-lg`}>
+            {/* Hover Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-end p-6 text-center">
+              <div className="mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium text-white">
                   {app.category}
                 </span>
               </div>
               
-              <p className="text-white/95 text-sm font-medium leading-relaxed max-w-[95%] line-clamp-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+              <p className="text-white/95 text-sm leading-relaxed max-w-[90%] line-clamp-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
                 {app.shortDescription}
               </p>
             </div>
 
             {/* Price Badge */}
-            <div className="absolute top-3 right-3 z-20">
+            <div className="absolute top-3 right-3 z-10">
               {getPriceBadge()}
             </div>
             
             {/* Platform indicator */}
-            <div className="absolute top-3 left-3 z-20">
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white/90 dark:bg-black/70 text-[var(--atomize-text-primary)] backdrop-blur-sm">
+            <div className="absolute top-3 left-3 z-10">
+              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white/90 dark:bg-black/70 text-foreground backdrop-blur-sm">
                 {app.platform}
               </span>
             </div>
           </div>
 
           {/* Content Section */}
-          <div className="relative p-4 bg-[var(--atomize-surface-elevated)]">
+          <div className="p-4 bg-card">
             <div className="flex items-start gap-3">
               <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2 min-w-0 mb-1.5">
-                  <span className="text-base font-semibold text-[var(--atomize-text-primary)] truncate group-hover:text-[var(--atomize-primary-600)] dark:group-hover:text-[var(--atomize-primary-400)] transition-colors">
+                <div className="flex items-center gap-2 min-w-0 mb-1">
+                  <h3 className="text-base font-semibold text-foreground truncate group-hover:text-foreground/80 transition-colors">
                     {app.name}
-                  </span>
+                  </h3>
                   {app.tags?.includes('New') && (
-                    <Sparkles className="h-4 w-4 text-[var(--atomize-accent-500)] flex-shrink-0" />
+                    <Sparkles className="h-4 w-4 text-foreground/60 flex-shrink-0" />
                   )}
                 </div>
                 
-                <p className="text-sm text-[var(--atomize-text-secondary)] mb-2 truncate">
+                <p className="text-sm text-muted-foreground mb-2 truncate">
                   by {app.developer}
                 </p>
                 
@@ -173,8 +157,8 @@ export function AppCard({ app, index }: AppCardProps) {
                 <div onClick={(e) => e.preventDefault()}>
                   <BookmarkButton appId={app.id} />
                 </div>
-                <div className="p-1.5 rounded-full opacity-60 group-hover:opacity-100 group-hover:bg-[var(--atomize-primary-100)] dark:group-hover:bg-[var(--atomize-primary-900)]/30 transition-all" aria-hidden>
-                  <ExternalLink className="h-4 w-4 text-[var(--atomize-primary-500)]" />
+                <div className="p-1.5 rounded-full opacity-60 group-hover:opacity-100 transition-opacity" aria-hidden>
+                  <ExternalLink className="h-4 w-4 text-muted-foreground" />
                 </div>
               </div>
             </div>
