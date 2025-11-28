@@ -13,10 +13,10 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="rounded-full w-9 h-9"
+      className="rounded-xl w-10 h-10 bg-[var(--atomize-surface-secondary)] hover:bg-[var(--atomize-surface-tertiary)] border border-[var(--atomize-border-primary)] transition-all duration-200"
     >
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <Sun className="h-[1.1rem] w-[1.1rem] rotate-0 scale-100 transition-all text-[var(--atomize-warning-500)] dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-[1.1rem] w-[1.1rem] rotate-90 scale-0 transition-all text-[var(--atomize-primary-400)] dark:rotate-0 dark:scale-100" />
       <span className="sr-only">Toggle theme</span>
     </Button>
   )

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Bookmark } from "lucide-react";
+import { Bookmark, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSession } from "@/lib/auth-client";
@@ -11,12 +11,14 @@ interface BookmarkButtonProps {
   appId: number;
   initialIsBookmarked?: boolean;
   className?: string;
+  variant?: "default" | "filled";
 }
 
 export function BookmarkButton({
   appId,
   initialIsBookmarked = false,
   className,
+  variant = "default",
 }: BookmarkButtonProps) {
   const router = useRouter();
   const pathname = usePathname();
@@ -117,7 +119,11 @@ export function BookmarkButton({
       variant="ghost"
       size="icon"
       className={cn(
-        "rounded-full transition-all duration-300 hover:bg-transparent hover:scale-110 active:scale-95 dark:hover:bg-transparent",
+        "rounded-full transition-all duration-300 active:scale-95",
+        variant === "filled" 
+          ? "w-10 h-10 bg-[var(--atomize-surface-secondary)] hover:bg-[var(--atomize-surface-tertiary)] border border-[var(--atomize-border-primary)]"
+          : "hover:bg-transparent hover:scale-110 dark:hover:bg-transparent",
+        isBookmarked && "hover:bg-[var(--atomize-accent-100)] dark:hover:bg-[var(--atomize-accent-900)]/30",
         className
       )}
       aria-pressed={isBookmarked}
@@ -127,10 +133,12 @@ export function BookmarkButton({
    >
       <Bookmark
         className={cn(
-          "h-4 w-4 transition-colors",
-          isBookmarked ? "text-white" : "text-zinc-600 dark:text-zinc-400"
+          "h-4 w-4 transition-all duration-200",
+          isBookmarked 
+            ? "text-[var(--atomize-accent-500)] fill-[var(--atomize-accent-500)]" 
+            : "text-[var(--atomize-text-tertiary)] hover:text-[var(--atomize-accent-400)]"
         )}
-        fill={isBookmarked ? "white" : "none"}
+        fill={isBookmarked ? "currentColor" : "none"}
       />
       <span className="sr-only">Bookmark</span>
     </Button>

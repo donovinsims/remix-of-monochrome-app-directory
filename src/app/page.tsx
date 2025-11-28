@@ -76,19 +76,24 @@ export default async function Home({ searchParams }: HomeProps) {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black">
+    <div className="min-h-screen bg-[var(--atomize-surface-primary)]">
       <Hero />
       
       <div className="container mx-auto px-4 pb-20">
         <Filters />
         {error ? (
           <div className="flex items-center justify-center py-20">
-            <div className="text-center max-w-md mx-auto">
-              <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Connection Error</h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">{error}</p>
+            <div className="text-center max-w-md mx-auto atomize-card p-8">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[var(--atomize-error-100)] to-[var(--atomize-error-200)] dark:from-[var(--atomize-error-900)]/40 dark:to-[var(--atomize-error-800)]/40 flex items-center justify-center">
+                <svg className="w-8 h-8 text-[var(--atomize-error-500)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--atomize-text-primary)]">Connection Error</h2>
+              <p className="text-[var(--atomize-text-secondary)] mb-6">{error}</p>
               <a 
                 href="/" 
-                className="inline-block px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity font-medium"
+                className="inline-block px-6 py-3 bg-gradient-to-r from-[var(--atomize-primary-500)] to-[var(--atomize-primary-600)] text-white rounded-xl hover:from-[var(--atomize-primary-600)] hover:to-[var(--atomize-primary-700)] transition-all font-semibold shadow-md hover:shadow-lg"
               >
                 Refresh Page
               </a>

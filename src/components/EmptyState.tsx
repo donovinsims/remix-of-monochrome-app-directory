@@ -14,26 +14,27 @@ interface EmptyStateProps {
 
 /**
  * EmptyState component for displaying "No results found" states
+ * Updated with Atomize Design System
  */
 export function EmptyState({ title, description, icon: Icon, action }: EmptyStateProps) {
   return (
     <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
       {Icon && (
-        <div className="mb-6 p-4 rounded-full bg-zinc-100 dark:bg-zinc-900">
-          <Icon className="h-12 w-12 text-zinc-400 dark:text-zinc-600" />
+        <div className="mb-6 p-5 rounded-2xl bg-gradient-to-br from-[var(--atomize-primary-100)] to-[var(--atomize-secondary-100)] dark:from-[var(--atomize-primary-900)]/40 dark:to-[var(--atomize-secondary-900)]/40 border border-[var(--atomize-border-primary)]">
+          <Icon className="h-12 w-12 text-[var(--atomize-primary-500)]" />
         </div>
       )}
       
-      <h3 className="text-2xl font-semibold mb-3 text-zinc-900 dark:text-white">
+      <h3 className="text-2xl font-semibold mb-3 text-[var(--atomize-text-primary)]">
         {title}
       </h3>
       
-      <p className="text-zinc-600 dark:text-zinc-400 max-w-md mb-8 leading-relaxed">
+      <p className="text-[var(--atomize-text-secondary)] max-w-md mb-8 leading-relaxed">
         {description}
       </p>
       
       {action && (
-        <Button asChild className="rounded-full">
+        <Button asChild className="rounded-xl bg-gradient-to-r from-[var(--atomize-primary-500)] to-[var(--atomize-primary-600)] hover:from-[var(--atomize-primary-600)] hover:to-[var(--atomize-primary-700)] text-white shadow-md hover:shadow-lg transition-all">
           <Link href={action.href}>
             {action.label}
           </Link>

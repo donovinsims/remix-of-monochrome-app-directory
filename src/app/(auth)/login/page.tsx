@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Loader2 } from "lucide-react";
+import { Loader2, Sparkles, Mail, Lock } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -26,7 +26,7 @@ export default function LoginPage() {
       const { error } = await authClient.signIn.email({
         email: formData.email,
         password: formData.password,
-        callbackURL: "/settings", // Redirect to settings or dashboard after login
+        callbackURL: "/settings",
       });
 
       if (error) {
@@ -45,46 +45,60 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 p-8 w-full">
+    <div className="relative bg-[var(--atomize-surface-elevated)] rounded-3xl shadow-xl border border-[var(--atomize-border-primary)] p-8 w-full overflow-hidden">
+      {/* Decorative gradient */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--atomize-primary-500)] via-[var(--atomize-secondary-500)] to-[var(--atomize-accent-500)]" />
+      
       <div className="flex flex-col space-y-2 text-center mb-8">
-        <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+        <div className="flex justify-center mb-4">
+          <div className="w-14 h-14 bg-gradient-to-br from-[var(--atomize-primary-500)] to-[var(--atomize-primary-700)] rounded-2xl flex items-center justify-center shadow-lg">
+            <Sparkles className="w-7 h-7 text-white" />
+          </div>
+        </div>
+        <h1 className="text-2xl font-bold tracking-tight text-[var(--atomize-text-primary)]">
           Welcome back
         </h1>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+        <p className="text-sm text-[var(--atomize-text-secondary)]">
           Enter your credentials to sign in to your account
         </p>
       </div>
 
-      <form onSubmit={handleLogin} className="space-y-6">
+      <form onSubmit={handleLogin} className="space-y-5">
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="name@example.com"
-            required
-            autoComplete="email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800"
-          />
+          <Label htmlFor="email" className="text-[var(--atomize-text-primary)]">Email</Label>
+          <div className="relative">
+            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--atomize-text-tertiary)]" />
+            <Input
+              id="email"
+              type="email"
+              placeholder="name@example.com"
+              required
+              autoComplete="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="pl-10 bg-[var(--atomize-surface-secondary)] border-[var(--atomize-border-primary)] focus:border-[var(--atomize-primary-400)] rounded-xl h-12"
+            />
+          </div>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="password">Password</Label>
-          <Input
-            id="password"
-            type="password"
-            required
-            autoComplete="current-password"
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            className="bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800"
-          />
+          <Label htmlFor="password" className="text-[var(--atomize-text-primary)]">Password</Label>
+          <div className="relative">
+            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--atomize-text-tertiary)]" />
+            <Input
+              id="password"
+              type="password"
+              required
+              autoComplete="current-password"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              className="pl-10 bg-[var(--atomize-surface-secondary)] border-[var(--atomize-border-primary)] focus:border-[var(--atomize-primary-400)] rounded-xl h-12"
+            />
+          </div>
         </div>
 
         <Button
           type="submit"
-          className="w-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+          className="w-full h-12 rounded-xl bg-gradient-to-r from-[var(--atomize-primary-500)] to-[var(--atomize-primary-600)] hover:from-[var(--atomize-primary-600)] hover:to-[var(--atomize-primary-700)] text-white font-semibold shadow-md hover:shadow-lg transition-all"
           disabled={isLoading}
         >
           {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -92,13 +106,13 @@ export default function LoginPage() {
         </Button>
       </form>
 
-      <div className="mt-6 text-center text-sm">
-        <span className="text-zinc-500 dark:text-zinc-400">
+      <div className="mt-8 text-center text-sm">
+        <span className="text-[var(--atomize-text-secondary)]">
           Don&apos;t have an account?{" "}
         </span>
         <Link
           href="/register"
-          className="font-medium text-zinc-900 dark:text-white hover:underline"
+          className="font-semibold text-[var(--atomize-primary-600)] dark:text-[var(--atomize-primary-400)] hover:text-[var(--atomize-primary-700)] dark:hover:text-[var(--atomize-primary-300)] transition-colors"
         >
           Sign up
         </Link>
