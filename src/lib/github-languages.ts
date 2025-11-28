@@ -43,7 +43,7 @@ export const GITHUB_LANGUAGE_COLORS: Record<string, string> = {
   
   // Other
   Markdown: '#083fa1',
-  Jupyter Notebook: '#DA5B0B',
+  'Jupyter Notebook': '#DA5B0B',
   R: '#198CE7',
   Scala: '#c22d40',
   Haskell: '#5e5086',

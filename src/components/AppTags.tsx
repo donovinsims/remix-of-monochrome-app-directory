@@ -1,67 +1,72 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { TagBadge } from "./TagBadge";
 
 interface AppTagsProps {
-  tags: string[];
+  tags: string[] | string | unknown;
   limit?: number;
-  className?: string;
 }
 
 /**
- * Display app tags with color coding
+ * Display color-coded tag badges for apps
  * - 'New' → blue
  * - 'Innovative' → purple
  * - 'Editor Pick' → gold
  */
-export function AppTags({ tags, limit = 3, className }: AppTagsProps) {
-  if (!tags || tags.length === 0) return null;
-
-  const displayTags = tags.slice(0, limit);
+export function AppTags({ tags, limit = 3 }: AppTagsProps) {
+  // Handle all possible cases for tags
+  let parsedTags: string[] = [];
+  
+  if (!tags) {
+    return null;
+  }
+  
+  if (typeof tags === "string") {
+    try {
+      const parsed = JSON.parse(tags);
+      parsedTags = Array.isArray(parsed) ? parsed : [];
+    } catch {
+      // If parsing fails, treat as empty array
+      parsedTags = [];
+    }
+  } else if (Array.isArray(tags)) {
+    parsedTags = tags;
+  } else {
+    // Unknown type, treat as empty
+    return null;
+  }
+  
+  // Filter out any non-string items and ensure we have valid tags
+  const validTags = parsedTags.filter(tag => typeof tag === 'string' && tag.trim().length > 0);
+  
+  if (validTags.length === 0) {
+    return null;
+  }
+  
+  const displayTags = validTags.slice(0, limit);
 
   const getTagVariant = (tag: string) => {
-    const normalizedTag = tag.toLowerCase();
-    
-    if (normalizedTag === 'new') {
-      return 'blue';
-    }
-    if (normalizedTag === 'innovative') {
-      return 'purple';
-    }
-    if (normalizedTag === 'editor pick') {
-      return 'gold';
-    }
-    return 'default';
-  };
-
-  const getTagStyles = (tag: string) => {
-    const variant = getTagVariant(tag);
-    
-    switch (variant) {
-      case 'blue':
-        return "bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border-blue-200 dark:border-blue-800";
-      case 'purple':
-        return "bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300 border-purple-200 dark:border-purple-800";
-      case 'gold':
-        return "bg-amber-50 text-amber-700 dark:bg-amber-950 dark:text-amber-300 border-amber-200 dark:border-amber-800";
+    switch (tag) {
+      case "New":
+        return "primary" as const;
+      case "Innovative":
+        return "secondary" as const;
+      case "Editor Pick":
+        return "success" as const;
       default:
-        return "bg-zinc-50 text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 border-zinc-200 dark:border-zinc-800";
+        return "default" as const;
     }
   };
 
   return (
-    <div className={cn("flex flex-wrap gap-1.5", className)}>
+    <div className="flex flex-wrap gap-1.5">
       {displayTags.map((tag, index) => (
-        <span
-          key={index}
-          className={cn(
-            "inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium border",
-            getTagStyles(tag)
-          )}
-        >
-          {tag}
-        </span>
+        <TagBadge
+          key={`${tag}-${index}`}
+          label={tag}
+          variant={getTagVariant(tag)}
+          size="sm"
+        />
       ))}
     </div>
   );

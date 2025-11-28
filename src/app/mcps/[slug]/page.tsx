@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Bookmark, Download, ExternalLink, Globe, Star, Share2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Bookmark, Download, ExternalLink, Globe, Star, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TagBadge } from "@/components/TagBadge";
 import { StatBadge } from "@/components/StatBadge";
