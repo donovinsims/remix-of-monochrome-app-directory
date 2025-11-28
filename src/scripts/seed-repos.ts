@@ -1,0 +1,263 @@
+import { db } from "../db";
+import { repos } from "../db/schema";
+
+/**
+ * Seed repos table with 15 realistic GitHub repositories
+ * Mix of iOS, macOS, and cross-platform tools
+ */
+
+const reposData = [
+  {
+    name: "SwiftUI-Components",
+    slug: "swiftui-components",
+    description: "A comprehensive collection of reusable SwiftUI components for building modern iOS and macOS applications. Includes custom buttons, cards, forms, and navigation patterns with full documentation and examples.",
+    shortDescription: "Reusable SwiftUI components library",
+    author: "Apple Developers",
+    githubUrl: "https://github.com/apple-devs/swiftui-components",
+    stars: 12500,
+    forks: 1850,
+    language: "Swift",
+    topics: ["ios", "macos", "swiftui", "component-library", "ui-kit"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-15").toISOString(),
+    createdAt: new Date("2024-01-10").toISOString(),
+  },
+  {
+    name: "MenuBarKit",
+    slug: "menubarkit",
+    description: "Easily create and manage macOS menu bar applications with this Swift framework. Features include customizable icons, popover menus, and system integration.",
+    shortDescription: "Framework for macOS menu bar apps",
+    author: "macOS Tools",
+    githubUrl: "https://github.com/macos-tools/menubarkit",
+    stars: 8900,
+    forks: 680,
+    language: "Swift",
+    topics: ["macos", "menubar", "system-integration", "framework"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-20").toISOString(),
+    createdAt: new Date("2024-03-15").toISOString(),
+  },
+  {
+    name: "ios-analytics-sdk",
+    slug: "ios-analytics-sdk",
+    description: "Privacy-focused analytics SDK for iOS applications. Track user behavior, app performance, and crashes without compromising user privacy. GDPR and CCPA compliant.",
+    shortDescription: "Privacy-first iOS analytics SDK",
+    author: "PrivacyTech",
+    githubUrl: "https://github.com/privacytech/ios-analytics-sdk",
+    stars: 6200,
+    forks: 420,
+    language: "Swift",
+    topics: ["ios", "analytics", "privacy", "sdk", "gdpr"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-10").toISOString(),
+    createdAt: new Date("2024-02-20").toISOString(),
+  },
+  {
+    name: "macos-automation-scripts",
+    slug: "macos-automation-scripts",
+    description: "Collection of useful shell scripts and AppleScript utilities for automating common macOS tasks. Includes system maintenance, file organization, and productivity workflows.",
+    shortDescription: "Automation scripts for macOS power users",
+    author: "automation-hub",
+    githubUrl: "https://github.com/automation-hub/macos-scripts",
+    stars: 15000,
+    forks: 2100,
+    language: "Shell",
+    topics: ["macos", "automation", "scripts", "productivity", "applescript"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-18").toISOString(),
+    createdAt: new Date("2023-08-05").toISOString(),
+  },
+  {
+    name: "react-native-helpers",
+    slug: "react-native-helpers",
+    description: "Utility functions and components for React Native development. Includes hooks, navigation helpers, and cross-platform utilities for iOS and Android.",
+    shortDescription: "React Native utilities and helpers",
+    author: "RN Community",
+    githubUrl: "https://github.com/rn-community/helpers",
+    stars: 9800,
+    forks: 1200,
+    language: "TypeScript",
+    topics: ["react-native", "ios", "android", "utilities", "hooks"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-22").toISOString(),
+    createdAt: new Date("2024-04-01").toISOString(),
+  },
+  {
+    name: "Keychain-Swift",
+    slug: "keychain-swift",
+    description: "Simple Swift wrapper for iOS and macOS Keychain. Store passwords, tokens, and sensitive data securely with an easy-to-use API.",
+    shortDescription: "Swift keychain wrapper for secure storage",
+    author: "Security Tools",
+    githubUrl: "https://github.com/security-tools/keychain-swift",
+    stars: 7400,
+    forks: 890,
+    language: "Swift",
+    topics: ["ios", "macos", "keychain", "security", "encryption"],
+    isArchived: false,
+    lastUpdated: new Date("2024-10-28").toISOString(),
+    createdAt: new Date("2023-11-12").toISOString(),
+  },
+  {
+    name: "Swift-Charts-Plus",
+    slug: "swift-charts-plus",
+    description: "Extended charting library built on top of Apple's Swift Charts. Adds custom chart types, animations, and advanced styling options.",
+    shortDescription: "Enhanced charting for SwiftUI apps",
+    author: "DataViz Labs",
+    githubUrl: "https://github.com/dataviz/swift-charts-plus",
+    stars: 5600,
+    forks: 380,
+    language: "Swift",
+    topics: ["ios", "macos", "charts", "data-visualization", "swiftui"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-05").toISOString(),
+    createdAt: new Date("2024-05-10").toISOString(),
+  },
+  {
+    name: "ios-testing-toolkit",
+    slug: "ios-testing-toolkit",
+    description: "Comprehensive testing utilities for iOS applications. Includes UI testing helpers, mocking frameworks, and snapshot testing tools for XCTest.",
+    shortDescription: "Complete iOS testing toolkit",
+    author: "QA Team",
+    githubUrl: "https://github.com/qa-team/ios-testing-toolkit",
+    stars: 4800,
+    forks: 620,
+    language: "Swift",
+    topics: ["ios", "testing", "xctest", "ui-testing", "mocking"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-12").toISOString(),
+    createdAt: new Date("2024-06-18").toISOString(),
+  },
+  {
+    name: "MacDriver",
+    slug: "macdriver",
+    description: "Go bindings for macOS frameworks. Build native macOS applications using Go with access to Cocoa, AppKit, and other system APIs.",
+    shortDescription: "Go bindings for macOS development",
+    author: "golang-macos",
+    githubUrl: "https://github.com/golang-macos/macdriver",
+    stars: 11200,
+    forks: 450,
+    language: "Go",
+    topics: ["macos", "golang", "cocoa", "appkit", "bindings"],
+    isArchived: false,
+    lastUpdated: new Date("2024-10-30").toISOString(),
+    createdAt: new Date("2023-09-20").toISOString(),
+  },
+  {
+    name: "ios-network-layer",
+    slug: "ios-network-layer",
+    description: "Modern networking layer for iOS apps built with Swift Concurrency. Features include request/response interceptors, retry logic, and comprehensive error handling.",
+    shortDescription: "Modern Swift networking layer",
+    author: "Mobile Infrastructure",
+    githubUrl: "https://github.com/mobile-infra/ios-network-layer",
+    stars: 3900,
+    forks: 280,
+    language: "Swift",
+    topics: ["ios", "networking", "swift-concurrency", "api-client"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-08").toISOString(),
+    createdAt: new Date("2024-07-22").toISOString(),
+  },
+  {
+    name: "Objective-C-Modernizer",
+    slug: "objective-c-modernizer",
+    description: "Tools and scripts for modernizing legacy Objective-C codebases. Helps with Swift migration, modern API adoption, and code quality improvements.",
+    shortDescription: "Modernize legacy Objective-C code",
+    author: "Code Migration Team",
+    githubUrl: "https://github.com/code-migration/objc-modernizer",
+    stars: 2100,
+    forks: 180,
+    language: "Python",
+    topics: ["objective-c", "swift", "migration", "refactoring", "legacy-code"],
+    isArchived: true,
+    lastUpdated: new Date("2024-03-15").toISOString(),
+    createdAt: new Date("2023-05-10").toISOString(),
+  },
+  {
+    name: "macos-notifier",
+    slug: "macos-notifier",
+    description: "Simple library for creating and managing native macOS notifications. Supports custom actions, sounds, and notification center integration.",
+    shortDescription: "macOS notification management library",
+    author: "System Utils",
+    githubUrl: "https://github.com/system-utils/macos-notifier",
+    stars: 3200,
+    forks: 240,
+    language: "Swift",
+    topics: ["macos", "notifications", "user-notifications", "system-integration"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-01").toISOString(),
+    createdAt: new Date("2024-08-05").toISOString(),
+  },
+  {
+    name: "SwiftFormat-Plus",
+    slug: "swiftformat-plus",
+    description: "Extended version of SwiftFormat with additional rules and customization options. Keep your Swift code clean and consistent across your team.",
+    shortDescription: "Advanced Swift code formatter",
+    author: "Dev Tools",
+    githubUrl: "https://github.com/dev-tools/swiftformat-plus",
+    stars: 6800,
+    forks: 520,
+    language: "Swift",
+    topics: ["swift", "formatting", "linter", "code-quality", "developer-tools"],
+    isArchived: false,
+    lastUpdated: new Date("2024-11-19").toISOString(),
+    createdAt: new Date("2024-02-28").toISOString(),
+  },
+  {
+    name: "ios-deeplink-router",
+    slug: "ios-deeplink-router",
+    description: "Flexible deep linking and URL routing system for iOS apps. Supports universal links, custom URL schemes, and dynamic routing with parameter extraction.",
+    shortDescription: "Deep linking router for iOS",
+    author: "Navigation Team",
+    githubUrl: "https://github.com/navigation-team/ios-deeplink-router",
+    stars: 4200,
+    forks: 310,
+    language: "Swift",
+    topics: ["ios", "deep-linking", "routing", "navigation", "universal-links"],
+    isArchived: false,
+    lastUpdated: new Date("2024-10-15").toISOString(),
+    createdAt: new Date("2024-04-20").toISOString(),
+  },
+  {
+    name: "CoreData-Utilities",
+    slug: "coredata-utilities",
+    description: "Collection of utilities and extensions for working with Core Data in iOS and macOS apps. Includes migration helpers, query builders, and performance optimization tools.",
+    shortDescription: "Core Data utilities and helpers",
+    author: "Data Layer",
+    githubUrl: "https://github.com/data-layer/coredata-utilities",
+    stars: 1800,
+    forks: 150,
+    language: "Swift",
+    topics: ["ios", "macos", "core-data", "database", "utilities"],
+    isArchived: true,
+    lastUpdated: new Date("2024-02-10").toISOString(),
+    createdAt: new Date("2023-07-15").toISOString(),
+  },
+];
+
+async function seedRepos() {
+  try {
+    console.log("🌱 Seeding repos...");
+    
+    // Convert topics array to JSON string for each repo
+    const reposWithJsonFields = reposData.map(repo => ({
+      ...repo,
+      topics: JSON.stringify(repo.topics),
+    }));
+
+    await db.insert(repos).values(reposWithJsonFields);
+    
+    console.log(`✓ Successfully created ${reposData.length} repos`);
+  } catch (error) {
+    console.error("Error seeding repos:", error);
+    throw error;
+  }
+}
+
+// Run if called directly
+if (require.main === module) {
+  seedRepos()
+    .then(() => process.exit(0))
+    .catch(() => process.exit(1));
+}
+
+export { seedRepos };
