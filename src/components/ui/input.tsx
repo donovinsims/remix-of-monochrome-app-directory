@@ -8,9 +8,9 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       type={type}
       data-slot="input"
       className={cn(
-        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+        "file:text-foreground placeholder:text-[var(--atomize-text-tertiary)] selection:bg-[var(--atomize-primary-200)] selection:text-[var(--atomize-primary-900)] dark:selection:bg-[var(--atomize-primary-700)] dark:selection:text-[var(--atomize-primary-100)] border-[var(--atomize-border-primary)] bg-[var(--atomize-surface-elevated)] flex h-11 w-full min-w-0 rounded-xl border px-4 py-2.5 text-base shadow-sm transition-all duration-200 outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        "focus:border-[var(--atomize-primary-400)] focus:ring-2 focus:ring-[var(--atomize-primary-200)] dark:focus:ring-[var(--atomize-primary-800)] hover:border-[var(--atomize-primary-300)]",
+        "aria-invalid:ring-[var(--atomize-error-200)] dark:aria-invalid:ring-[var(--atomize-error-800)] aria-invalid:border-[var(--atomize-error-500)]",
         className
       )}
       {...props}

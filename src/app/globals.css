@@ -1,3 +1,4 @@
+/* Updated: 2025-11-28T07:41:33.478Z */
 /* Updated: 2025-11-28T07:12:29.330Z */
 /* Updated: 2025-11-28T07:05:16.075Z */
 /* Updated: 2025-11-28T07:05:05.115Z */
@@ -32,21 +33,39 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Atomize Design System Integration */
-  --color-atomize-neutral-0: var(--atomize-neutral-0);
-  --color-atomize-neutral-50: var(--atomize-neutral-50);
-  --color-atomize-neutral-100: var(--atomize-neutral-100);
-  --color-atomize-neutral-200: var(--atomize-neutral-200);
-  --color-atomize-neutral-300: var(--atomize-neutral-300);
-  --color-atomize-neutral-400: var(--atomize-neutral-400);
-  --color-atomize-neutral-500: var(--atomize-neutral-500);
-  --color-atomize-neutral-600: var(--atomize-neutral-600);
-  --color-atomize-neutral-700: var(--atomize-neutral-700);
-  --color-atomize-neutral-800: var(--atomize-neutral-800);
-  --color-atomize-neutral-900: var(--atomize-neutral-900);
-  --color-atomize-neutral-950: var(--atomize-neutral-950);
+  /* Atomize Design System Integration - Vibrant Colors */
+  --color-atomize-primary-50: var(--atomize-primary-50);
+  --color-atomize-primary-100: var(--atomize-primary-100);
+  --color-atomize-primary-200: var(--atomize-primary-200);
+  --color-atomize-primary-300: var(--atomize-primary-300);
+  --color-atomize-primary-400: var(--atomize-primary-400);
+  --color-atomize-primary-500: var(--atomize-primary-500);
+  --color-atomize-primary-600: var(--atomize-primary-600);
+  --color-atomize-primary-700: var(--atomize-primary-700);
+  --color-atomize-primary-800: var(--atomize-primary-800);
+  --color-atomize-primary-900: var(--atomize-primary-900);
   
-  /* Backward compatibility with existing variables */
+  --color-atomize-secondary-50: var(--atomize-secondary-50);
+  --color-atomize-secondary-100: var(--atomize-secondary-100);
+  --color-atomize-secondary-200: var(--atomize-secondary-200);
+  --color-atomize-secondary-300: var(--atomize-secondary-300);
+  --color-atomize-secondary-400: var(--atomize-secondary-400);
+  --color-atomize-secondary-500: var(--atomize-secondary-500);
+  --color-atomize-secondary-600: var(--atomize-secondary-600);
+  
+  --color-atomize-accent-50: var(--atomize-accent-50);
+  --color-atomize-accent-100: var(--atomize-accent-100);
+  --color-atomize-accent-200: var(--atomize-accent-200);
+  --color-atomize-accent-300: var(--atomize-accent-300);
+  --color-atomize-accent-400: var(--atomize-accent-400);
+  --color-atomize-accent-500: var(--atomize-accent-500);
+  --color-atomize-accent-600: var(--atomize-accent-600);
+  
+  --color-atomize-success-500: var(--atomize-success-500);
+  --color-atomize-warning-500: var(--atomize-warning-500);
+  --color-atomize-error-500: var(--atomize-error-500);
+  
+  /* Backward compatibility */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -87,84 +106,82 @@
 }
 
 :root {
-  /* Atomize-mapped base variables (maintaining backward compatibility) */
-  --radius: 0.75rem; /* Updated to match Atomize radius-lg (12px) */
+  --radius: 0.75rem;
   
-  /* Map existing variables to Atomize tokens */
+  /* Map to vibrant Atomize tokens */
   --background: var(--atomize-surface-primary);
   --foreground: var(--atomize-text-primary);
   --card: var(--atomize-surface-elevated);
   --card-foreground: var(--atomize-text-primary);
   --popover: var(--atomize-surface-elevated);
   --popover-foreground: var(--atomize-text-primary);
-  --primary: var(--atomize-interactive-primary);
-  --primary-foreground: var(--atomize-text-inverted);
-  --secondary: var(--atomize-interactive-secondary);
-  --secondary-foreground: var(--atomize-text-primary);
-  --muted: var(--atomize-surface-secondary);
+  --primary: var(--atomize-primary-600);
+  --primary-foreground: var(--atomize-neutral-0);
+  --secondary: var(--atomize-secondary-100);
+  --secondary-foreground: var(--atomize-secondary-800);
+  --muted: var(--atomize-neutral-100);
   --muted-foreground: var(--atomize-text-secondary);
-  --accent: var(--atomize-surface-tertiary);
-  --accent-foreground: var(--atomize-text-primary);
-  --destructive: oklch(0.577 0.245 27.325);
+  --accent: var(--atomize-accent-100);
+  --accent-foreground: var(--atomize-accent-800);
+  --destructive: var(--atomize-error-500);
   --border: var(--atomize-border-primary);
   --input: var(--atomize-border-primary);
-  --ring: var(--atomize-border-focus);
+  --ring: var(--atomize-primary-500);
   
-  /* Chart colors (keep existing) */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* Chart colors - vibrant palette */
+  --chart-1: var(--atomize-primary-500);
+  --chart-2: var(--atomize-secondary-500);
+  --chart-3: var(--atomize-accent-500);
+  --chart-4: var(--atomize-success-500);
+  --chart-5: var(--atomize-warning-500);
   
-  /* Sidebar colors (mapped to Atomize) */
+  /* Sidebar colors */
   --sidebar: var(--atomize-surface-secondary);
   --sidebar-foreground: var(--atomize-text-primary);
-  --sidebar-primary: var(--atomize-interactive-primary);
-  --sidebar-primary-foreground: var(--atomize-text-inverted);
-  --sidebar-accent: var(--atomize-surface-tertiary);
-  --sidebar-accent-foreground: var(--atomize-text-primary);
+  --sidebar-primary: var(--atomize-primary-600);
+  --sidebar-primary-foreground: var(--atomize-neutral-0);
+  --sidebar-accent: var(--atomize-primary-100);
+  --sidebar-accent-foreground: var(--atomize-primary-800);
   --sidebar-border: var(--atomize-border-primary);
-  --sidebar-ring: var(--atomize-border-focus);
+  --sidebar-ring: var(--atomize-primary-500);
 }
 
 .dark {
-  /* Dark mode inherits from Atomize dark theme tokens */
   --background: var(--atomize-surface-primary);
   --foreground: var(--atomize-text-primary);
   --card: var(--atomize-surface-elevated);
   --card-foreground: var(--atomize-text-primary);
   --popover: var(--atomize-surface-elevated);
   --popover-foreground: var(--atomize-text-primary);
-  --primary: var(--atomize-interactive-primary);
-  --primary-foreground: var(--atomize-text-inverted);
-  --secondary: var(--atomize-interactive-secondary);
-  --secondary-foreground: var(--atomize-text-primary);
-  --muted: var(--atomize-surface-secondary);
+  --primary: var(--atomize-primary-500);
+  --primary-foreground: var(--atomize-neutral-950);
+  --secondary: var(--atomize-secondary-800);
+  --secondary-foreground: var(--atomize-secondary-100);
+  --muted: var(--atomize-surface-tertiary);
   --muted-foreground: var(--atomize-text-secondary);
-  --accent: var(--atomize-surface-tertiary);
-  --accent-foreground: var(--atomize-text-primary);
-  --destructive: oklch(0.704 0.191 22.216);
+  --accent: var(--atomize-accent-800);
+  --accent-foreground: var(--atomize-accent-100);
+  --destructive: var(--atomize-error-500);
   --border: var(--atomize-border-primary);
   --input: var(--atomize-border-primary);
-  --ring: var(--atomize-border-focus);
+  --ring: var(--atomize-primary-400);
   
-  /* Chart colors (keep existing) */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  /* Chart colors (dark) */
+  --chart-1: var(--atomize-primary-400);
+  --chart-2: var(--atomize-secondary-400);
+  --chart-3: var(--atomize-accent-400);
+  --chart-4: var(--atomize-success-400);
+  --chart-5: var(--atomize-warning-400);
   
-  /* Sidebar colors (dark mode) */
+  /* Sidebar colors (dark) */
   --sidebar: var(--atomize-surface-elevated);
   --sidebar-foreground: var(--atomize-text-primary);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: var(--atomize-text-inverted);
+  --sidebar-primary: var(--atomize-primary-500);
+  --sidebar-primary-foreground: var(--atomize-neutral-950);
   --sidebar-accent: var(--atomize-surface-tertiary);
   --sidebar-accent-foreground: var(--atomize-text-primary);
   --sidebar-border: var(--atomize-border-primary);
-  --sidebar-ring: var(--atomize-border-focus);
+  --sidebar-ring: var(--atomize-primary-400);
 }
 
 @layer base {
@@ -181,19 +198,18 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* Atomize Typography Base Styles */
   h1, h2, h3, h4, h5, h6 {
     font-weight: var(--atomize-font-weight-semibold);
     line-height: var(--atomize-line-height-snug);
-  }
-  
-  h1 {
-    font-size: var(--atomize-font-size-display-sm);
     letter-spacing: var(--atomize-letter-spacing-tight);
   }
   
+  h1 {
+    font-size: var(--atomize-font-size-display-lg);
+  }
+  
   h2 {
-    font-size: var(--atomize-font-size-heading-xl);
+    font-size: var(--atomize-font-size-display-sm);
   }
   
   h3 {
@@ -206,59 +222,81 @@
   
   p {
     font-size: var(--atomize-font-size-body-md);
-    line-height: var(--atomize-line-height-normal);
+    line-height: var(--atomize-line-height-relaxed);
   }
   
-  /* Atomize Focus Styles (WCAG 2.1 AA compliant) */
   *:focus-visible {
-    outline: 2px solid var(--atomize-border-focus);
+    outline: 2px solid var(--atomize-primary-500);
     outline-offset: 2px;
     border-radius: var(--atomize-radius-sm);
   }
   
-  /* Atomize Selection Styles */
   ::selection {
-    background-color: var(--atomize-interactive-primary);
-    color: var(--atomize-text-inverted);
+    background-color: var(--atomize-primary-200);
+    color: var(--atomize-primary-900);
   }
   
-  /* Smooth Transitions (Atomize animation tokens) */
-  * {
-    transition-timing-function: var(--atomize-easing-standard);
+  .dark ::selection {
+    background-color: var(--atomize-primary-700);
+    color: var(--atomize-primary-100);
   }
 }
 
-/* Hide Next.js error overlay portal */
+/* Hide Next.js error overlay */
 nextjs-portal {
   display: none !important;
 }
 
 /* Atomize Utility Classes */
-.atomize-surface-primary {
-  background-color: var(--atomize-surface-primary);
+.atomize-gradient-mesh {
+  background: var(--atomize-gradient-mesh);
 }
 
-.atomize-surface-elevated {
-  background-color: var(--atomize-surface-elevated);
+.atomize-gradient-hero {
+  background: var(--atomize-gradient-hero);
 }
 
-.atomize-text-primary {
-  color: var(--atomize-text-primary);
+.atomize-gradient-primary {
+  background: var(--atomize-gradient-primary);
 }
 
-.atomize-text-secondary {
-  color: var(--atomize-text-secondary);
+.atomize-shadow-glow {
+  box-shadow: var(--atomize-shadow-glow-primary);
 }
 
-.atomize-shadow-card {
+.atomize-card {
+  background: var(--atomize-surface-elevated);
+  border: 1px solid var(--atomize-border-primary);
+  border-radius: var(--atomize-radius-2xl);
   box-shadow: var(--atomize-elevation-card);
+  transition: all var(--atomize-duration-normal) var(--atomize-easing-standard);
 }
 
-.atomize-shadow-card-hover {
+.atomize-card:hover {
   box-shadow: var(--atomize-elevation-card-hover);
+  border-color: var(--atomize-primary-300);
 }
 
-.atomize-transition {
-  transition-duration: var(--atomize-duration-normal);
-  transition-timing-function: var(--atomize-easing-standard);
+.dark .atomize-card:hover {
+  border-color: var(--atomize-primary-500);
+}
+
+.atomize-button-primary {
+  background: var(--atomize-gradient-primary);
+  color: var(--atomize-neutral-0);
+  border-radius: var(--atomize-radius-lg);
+  font-weight: var(--atomize-font-weight-medium);
+  transition: all var(--atomize-duration-fast) var(--atomize-easing-standard);
+}
+
+.atomize-button-primary:hover {
+  box-shadow: var(--atomize-shadow-glow-primary);
+  transform: translateY(-1px);
+}
+
+.atomize-text-gradient {
+  background: var(--atomize-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

@@ -5,18 +5,28 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
+  "inline-flex items-center justify-center rounded-full border px-2.5 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1.5 [&>svg]:pointer-events-none transition-all duration-200 overflow-hidden",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
+          "border-transparent bg-gradient-to-r from-[var(--atomize-primary-500)] to-[var(--atomize-primary-600)] text-white shadow-sm",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+          "border-transparent bg-[var(--atomize-neutral-100)] text-[var(--atomize-neutral-700)] dark:bg-[var(--atomize-neutral-800)] dark:text-[var(--atomize-neutral-200)]",
         destructive:
-          "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "border-transparent bg-gradient-to-r from-[var(--atomize-error-500)] to-[var(--atomize-error-600)] text-white",
         outline:
-          "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+          "border-[var(--atomize-border-primary)] text-[var(--atomize-text-secondary)] bg-transparent",
+        success:
+          "border-transparent bg-gradient-to-r from-[var(--atomize-success-500)] to-[var(--atomize-success-600)] text-white",
+        warning:
+          "border-transparent bg-gradient-to-r from-[var(--atomize-warning-400)] to-[var(--atomize-warning-500)] text-[var(--atomize-warning-900)]",
+        accent:
+          "border-transparent bg-gradient-to-r from-[var(--atomize-accent-400)] to-[var(--atomize-accent-500)] text-white",
+        new:
+          "border-transparent bg-gradient-to-r from-[var(--atomize-secondary-400)] to-[var(--atomize-secondary-500)] text-white",
+        premium:
+          "border-transparent bg-gradient-to-r from-[var(--atomize-warning-500)] to-[var(--atomize-accent-500)] text-white",
       },
     },
     defaultVariants: {

@@ -1,87 +1,193 @@
 /**
  * Atomize Design System v3.0 - Design Tokens
- * Extracted from Figma and mapped to CSS custom properties
- * Based on 4pt grid system with monochrome palette
+ * Vibrant color palette with semantic tokens
+ * Based on 4pt grid system
  */
 
 :root {
   /* ===========================
-     ATOMIZE COLOR TOKENS (Light Mode)
+     ATOMIZE COLOR PALETTE
      =========================== */
   
-  /* Base Colors - Neutral Scale (Monochrome) */
-  --atomize-neutral-0: oklch(1 0 0);           /* Pure White */
-  --atomize-neutral-50: oklch(0.985 0 0);      /* Off White */
-  --atomize-neutral-100: oklch(0.97 0 0);      /* Light Gray */
-  --atomize-neutral-200: oklch(0.922 0 0);     /* Gray 200 */
-  --atomize-neutral-300: oklch(0.85 0 0);      /* Gray 300 */
-  --atomize-neutral-400: oklch(0.708 0 0);     /* Medium Gray */
-  --atomize-neutral-500: oklch(0.556 0 0);     /* Gray 500 */
-  --atomize-neutral-600: oklch(0.445 0 0);     /* Gray 600 */
-  --atomize-neutral-700: oklch(0.33 0 0);      /* Dark Gray */
-  --atomize-neutral-800: oklch(0.269 0 0);     /* Charcoal */
-  --atomize-neutral-900: oklch(0.205 0 0);     /* Near Black */
-  --atomize-neutral-950: oklch(0.145 0 0);     /* Pure Black */
+  /* Primary Brand - Deep Indigo/Purple */
+  --atomize-primary-50: oklch(0.97 0.02 280);
+  --atomize-primary-100: oklch(0.94 0.05 275);
+  --atomize-primary-200: oklch(0.88 0.10 270);
+  --atomize-primary-300: oklch(0.78 0.16 268);
+  --atomize-primary-400: oklch(0.68 0.20 265);
+  --atomize-primary-500: oklch(0.55 0.25 262);
+  --atomize-primary-600: oklch(0.48 0.24 260);
+  --atomize-primary-700: oklch(0.40 0.20 258);
+  --atomize-primary-800: oklch(0.33 0.16 256);
+  --atomize-primary-900: oklch(0.28 0.12 254);
   
-  /* Semantic Surface Colors */
+  /* Secondary - Teal/Cyan */
+  --atomize-secondary-50: oklch(0.97 0.02 185);
+  --atomize-secondary-100: oklch(0.93 0.05 182);
+  --atomize-secondary-200: oklch(0.86 0.10 180);
+  --atomize-secondary-300: oklch(0.75 0.14 178);
+  --atomize-secondary-400: oklch(0.65 0.16 176);
+  --atomize-secondary-500: oklch(0.55 0.15 174);
+  --atomize-secondary-600: oklch(0.48 0.13 172);
+  --atomize-secondary-700: oklch(0.40 0.11 170);
+  --atomize-secondary-800: oklch(0.33 0.09 168);
+  --atomize-secondary-900: oklch(0.28 0.07 166);
+  
+  /* Accent - Coral/Orange */
+  --atomize-accent-50: oklch(0.97 0.02 30);
+  --atomize-accent-100: oklch(0.94 0.06 28);
+  --atomize-accent-200: oklch(0.88 0.12 25);
+  --atomize-accent-300: oklch(0.80 0.18 22);
+  --atomize-accent-400: oklch(0.72 0.20 18);
+  --atomize-accent-500: oklch(0.65 0.22 15);
+  --atomize-accent-600: oklch(0.58 0.20 12);
+  --atomize-accent-700: oklch(0.50 0.18 10);
+  --atomize-accent-800: oklch(0.42 0.14 8);
+  --atomize-accent-900: oklch(0.35 0.10 6);
+  
+  /* Success - Emerald Green */
+  --atomize-success-50: oklch(0.97 0.02 155);
+  --atomize-success-100: oklch(0.93 0.06 150);
+  --atomize-success-200: oklch(0.86 0.12 145);
+  --atomize-success-300: oklch(0.75 0.18 142);
+  --atomize-success-400: oklch(0.65 0.20 140);
+  --atomize-success-500: oklch(0.55 0.18 138);
+  --atomize-success-600: oklch(0.48 0.16 136);
+  --atomize-success-700: oklch(0.40 0.13 134);
+  --atomize-success-800: oklch(0.33 0.10 132);
+  --atomize-success-900: oklch(0.28 0.08 130);
+  
+  /* Warning - Amber/Gold */
+  --atomize-warning-50: oklch(0.98 0.02 85);
+  --atomize-warning-100: oklch(0.95 0.06 82);
+  --atomize-warning-200: oklch(0.90 0.14 78);
+  --atomize-warning-300: oklch(0.85 0.18 75);
+  --atomize-warning-400: oklch(0.80 0.19 70);
+  --atomize-warning-500: oklch(0.75 0.18 65);
+  --atomize-warning-600: oklch(0.65 0.16 60);
+  --atomize-warning-700: oklch(0.55 0.14 55);
+  --atomize-warning-800: oklch(0.45 0.12 50);
+  --atomize-warning-900: oklch(0.38 0.10 45);
+  
+  /* Error - Rose/Red */
+  --atomize-error-50: oklch(0.97 0.02 15);
+  --atomize-error-100: oklch(0.93 0.05 12);
+  --atomize-error-200: oklch(0.86 0.12 10);
+  --atomize-error-300: oklch(0.75 0.18 8);
+  --atomize-error-400: oklch(0.65 0.22 5);
+  --atomize-error-500: oklch(0.58 0.24 3);
+  --atomize-error-600: oklch(0.50 0.22 1);
+  --atomize-error-700: oklch(0.42 0.18 0);
+  --atomize-error-800: oklch(0.35 0.14 358);
+  --atomize-error-900: oklch(0.30 0.10 356);
+  
+  /* Neutral Scale */
+  --atomize-neutral-0: oklch(1 0 0);
+  --atomize-neutral-50: oklch(0.985 0.002 280);
+  --atomize-neutral-100: oklch(0.965 0.003 275);
+  --atomize-neutral-200: oklch(0.925 0.004 270);
+  --atomize-neutral-300: oklch(0.865 0.005 265);
+  --atomize-neutral-400: oklch(0.708 0.008 260);
+  --atomize-neutral-500: oklch(0.556 0.010 255);
+  --atomize-neutral-600: oklch(0.445 0.012 250);
+  --atomize-neutral-700: oklch(0.370 0.014 245);
+  --atomize-neutral-800: oklch(0.280 0.016 240);
+  --atomize-neutral-900: oklch(0.205 0.018 235);
+  --atomize-neutral-950: oklch(0.145 0.020 230);
+  
+  /* ===========================
+     SEMANTIC SURFACE COLORS
+     =========================== */
   --atomize-surface-primary: var(--atomize-neutral-0);
   --atomize-surface-secondary: var(--atomize-neutral-50);
   --atomize-surface-tertiary: var(--atomize-neutral-100);
   --atomize-surface-elevated: var(--atomize-neutral-0);
-  --atomize-surface-overlay: oklch(0 0 0 / 60%);
+  --atomize-surface-overlay: oklch(0.15 0.02 260 / 80%);
+  --atomize-surface-brand: var(--atomize-primary-50);
+  --atomize-surface-brand-subtle: var(--atomize-primary-100);
   
-  /* Semantic Text Colors */
-  --atomize-text-primary: var(--atomize-neutral-950);
-  --atomize-text-secondary: var(--atomize-neutral-500);
-  --atomize-text-tertiary: var(--atomize-neutral-400);
-  --atomize-text-disabled: var(--atomize-neutral-300);
+  /* ===========================
+     SEMANTIC TEXT COLORS
+     =========================== */
+  --atomize-text-primary: var(--atomize-neutral-900);
+  --atomize-text-secondary: var(--atomize-neutral-600);
+  --atomize-text-tertiary: var(--atomize-neutral-500);
+  --atomize-text-disabled: var(--atomize-neutral-400);
   --atomize-text-inverted: var(--atomize-neutral-0);
+  --atomize-text-brand: var(--atomize-primary-600);
+  --atomize-text-link: var(--atomize-primary-500);
+  --atomize-text-success: var(--atomize-success-600);
+  --atomize-text-warning: var(--atomize-warning-700);
+  --atomize-text-error: var(--atomize-error-600);
   
-  /* Semantic Border Colors */
+  /* ===========================
+     SEMANTIC BORDER COLORS
+     =========================== */
   --atomize-border-primary: var(--atomize-neutral-200);
   --atomize-border-secondary: var(--atomize-neutral-100);
-  --atomize-border-focus: var(--atomize-neutral-900);
-  --atomize-border-error: oklch(0.577 0.245 27.325);
+  --atomize-border-focus: var(--atomize-primary-500);
+  --atomize-border-error: var(--atomize-error-500);
+  --atomize-border-success: var(--atomize-success-500);
+  --atomize-border-brand: var(--atomize-primary-300);
   
-  /* Semantic Interactive Colors */
-  --atomize-interactive-primary: var(--atomize-neutral-900);
-  --atomize-interactive-primary-hover: var(--atomize-neutral-800);
+  /* ===========================
+     SEMANTIC INTERACTIVE COLORS
+     =========================== */
+  --atomize-interactive-primary: var(--atomize-primary-600);
+  --atomize-interactive-primary-hover: var(--atomize-primary-700);
+  --atomize-interactive-primary-active: var(--atomize-primary-800);
   --atomize-interactive-secondary: var(--atomize-neutral-100);
   --atomize-interactive-secondary-hover: var(--atomize-neutral-200);
+  --atomize-interactive-accent: var(--atomize-accent-500);
+  --atomize-interactive-accent-hover: var(--atomize-accent-600);
   
-  /* Accent Colors (Minimal for badges/highlights) */
-  --atomize-accent-blue: oklch(0.6 0.118 184.704);
-  --atomize-accent-purple: oklch(0.488 0.243 264.376);
-  --atomize-accent-gold: oklch(0.828 0.189 84.429);
+  /* ===========================
+     GRADIENT PRESETS
+     =========================== */
+  --atomize-gradient-primary: linear-gradient(135deg, var(--atomize-primary-500) 0%, var(--atomize-primary-700) 100%);
+  --atomize-gradient-secondary: linear-gradient(135deg, var(--atomize-secondary-400) 0%, var(--atomize-secondary-600) 100%);
+  --atomize-gradient-accent: linear-gradient(135deg, var(--atomize-accent-400) 0%, var(--atomize-accent-600) 100%);
+  --atomize-gradient-hero: linear-gradient(135deg, var(--atomize-primary-100) 0%, var(--atomize-secondary-100) 50%, var(--atomize-accent-100) 100%);
+  --atomize-gradient-mesh: radial-gradient(at 40% 20%, var(--atomize-primary-200) 0px, transparent 50%), 
+                           radial-gradient(at 80% 0%, var(--atomize-secondary-200) 0px, transparent 50%),
+                           radial-gradient(at 0% 50%, var(--atomize-accent-100) 0px, transparent 50%);
   
   /* ===========================
      ATOMIZE SPACING TOKENS (4pt grid)
      =========================== */
   --atomize-spacing-0: 0;
+  --atomize-spacing-0-5: 2px;
   --atomize-spacing-1: 4px;
+  --atomize-spacing-1-5: 6px;
   --atomize-spacing-2: 8px;
+  --atomize-spacing-2-5: 10px;
   --atomize-spacing-3: 12px;
+  --atomize-spacing-3-5: 14px;
   --atomize-spacing-4: 16px;
   --atomize-spacing-5: 20px;
   --atomize-spacing-6: 24px;
   --atomize-spacing-7: 28px;
   --atomize-spacing-8: 32px;
+  --atomize-spacing-9: 36px;
   --atomize-spacing-10: 40px;
+  --atomize-spacing-11: 44px;
   --atomize-spacing-12: 48px;
   --atomize-spacing-14: 56px;
   --atomize-spacing-16: 64px;
   --atomize-spacing-20: 80px;
   --atomize-spacing-24: 96px;
+  --atomize-spacing-28: 112px;
+  --atomize-spacing-32: 128px;
   
   /* ===========================
      ATOMIZE TYPOGRAPHY TOKENS
      =========================== */
+  --atomize-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+  --atomize-font-display: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --atomize-font-mono: 'SF Mono', 'Fira Code', 'Menlo', 'Monaco', 'Courier New', monospace;
   
-  /* Font Families */
-  --atomize-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
-  --atomize-font-mono: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
-  
-  /* Font Sizes */
+  --atomize-font-size-display-2xl: 64px;
+  --atomize-font-size-display-xl: 56px;
   --atomize-font-size-display-lg: 48px;
   --atomize-font-size-display-md: 40px;
   --atomize-font-size-display-sm: 32px;
@@ -89,56 +195,63 @@
   --atomize-font-size-heading-lg: 24px;
   --atomize-font-size-heading-md: 20px;
   --atomize-font-size-heading-sm: 18px;
+  --atomize-font-size-body-xl: 18px;
   --atomize-font-size-body-lg: 16px;
   --atomize-font-size-body-md: 14px;
-  --atomize-font-size-body-sm: 12px;
+  --atomize-font-size-body-sm: 13px;
+  --atomize-font-size-body-xs: 12px;
   --atomize-font-size-caption: 11px;
   
-  /* Font Weights */
+  --atomize-font-weight-light: 300;
   --atomize-font-weight-regular: 400;
   --atomize-font-weight-medium: 500;
   --atomize-font-weight-semibold: 600;
   --atomize-font-weight-bold: 700;
+  --atomize-font-weight-extrabold: 800;
   
-  /* Line Heights */
-  --atomize-line-height-tight: 1.2;
-  --atomize-line-height-snug: 1.3;
+  --atomize-line-height-none: 1;
+  --atomize-line-height-tight: 1.15;
+  --atomize-line-height-snug: 1.25;
   --atomize-line-height-normal: 1.5;
-  --atomize-line-height-relaxed: 1.75;
+  --atomize-line-height-relaxed: 1.625;
+  --atomize-line-height-loose: 2;
   
-  /* Letter Spacing */
+  --atomize-letter-spacing-tighter: -0.03em;
   --atomize-letter-spacing-tight: -0.02em;
   --atomize-letter-spacing-normal: 0em;
   --atomize-letter-spacing-wide: 0.02em;
+  --atomize-letter-spacing-wider: 0.05em;
   
   /* ===========================
      ATOMIZE BORDER RADIUS TOKENS
      =========================== */
   --atomize-radius-none: 0;
-  --atomize-radius-xs: 2px;
-  --atomize-radius-sm: 4px;
+  --atomize-radius-xs: 4px;
+  --atomize-radius-sm: 6px;
   --atomize-radius-md: 8px;
   --atomize-radius-lg: 12px;
   --atomize-radius-xl: 16px;
   --atomize-radius-2xl: 20px;
   --atomize-radius-3xl: 24px;
+  --atomize-radius-4xl: 32px;
   --atomize-radius-full: 9999px;
   
   /* ===========================
      ATOMIZE ELEVATION TOKENS (Shadows)
      =========================== */
   --atomize-shadow-none: none;
-  --atomize-shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.05);
-  --atomize-shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.10), 0 1px 2px -1px oklch(0 0 0 / 0.10);
-  --atomize-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.10), 0 2px 4px -2px oklch(0 0 0 / 0.10);
-  --atomize-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.10), 0 4px 6px -4px oklch(0 0 0 / 0.10);
-  --atomize-shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.10), 0 8px 10px -6px oklch(0 0 0 / 0.10);
-  --atomize-shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.25);
-  --atomize-shadow-inner: inset 0 2px 4px 0 oklch(0 0 0 / 0.05);
+  --atomize-shadow-xs: 0 1px 2px 0 oklch(0.15 0.02 260 / 0.06);
+  --atomize-shadow-sm: 0 1px 3px 0 oklch(0.15 0.02 260 / 0.10), 0 1px 2px -1px oklch(0.15 0.02 260 / 0.08);
+  --atomize-shadow-md: 0 4px 6px -1px oklch(0.15 0.02 260 / 0.10), 0 2px 4px -2px oklch(0.15 0.02 260 / 0.08);
+  --atomize-shadow-lg: 0 10px 15px -3px oklch(0.15 0.02 260 / 0.12), 0 4px 6px -4px oklch(0.15 0.02 260 / 0.08);
+  --atomize-shadow-xl: 0 20px 25px -5px oklch(0.15 0.02 260 / 0.12), 0 8px 10px -6px oklch(0.15 0.02 260 / 0.06);
+  --atomize-shadow-2xl: 0 25px 50px -12px oklch(0.15 0.02 260 / 0.25);
+  --atomize-shadow-inner: inset 0 2px 4px 0 oklch(0.15 0.02 260 / 0.06);
+  --atomize-shadow-glow-primary: 0 0 20px -5px var(--atomize-primary-400);
+  --atomize-shadow-glow-accent: 0 0 20px -5px var(--atomize-accent-400);
   
-  /* Elevation Semantic */
   --atomize-elevation-card: var(--atomize-shadow-sm);
-  --atomize-elevation-card-hover: var(--atomize-shadow-md);
+  --atomize-elevation-card-hover: var(--atomize-shadow-lg);
   --atomize-elevation-dropdown: var(--atomize-shadow-lg);
   --atomize-elevation-modal: var(--atomize-shadow-xl);
   --atomize-elevation-toast: var(--atomize-shadow-2xl);
@@ -146,36 +259,38 @@
   /* ===========================
      ATOMIZE ANIMATION TOKENS
      =========================== */
-  --atomize-duration-instant: 100ms;
-  --atomize-duration-fast: 200ms;
-  --atomize-duration-normal: 300ms;
-  --atomize-duration-slow: 500ms;
+  --atomize-duration-instant: 75ms;
+  --atomize-duration-fast: 150ms;
+  --atomize-duration-normal: 250ms;
+  --atomize-duration-slow: 400ms;
+  --atomize-duration-slower: 600ms;
   
+  --atomize-easing-linear: linear;
   --atomize-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --atomize-easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
   --atomize-easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --atomize-easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --atomize-easing-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
   
   /* ===========================
      ATOMIZE COMPONENT TOKENS
      =========================== */
-  
-  /* Button */
+  --atomize-button-padding-xs: var(--atomize-spacing-1-5) var(--atomize-spacing-2-5);
   --atomize-button-padding-sm: var(--atomize-spacing-2) var(--atomize-spacing-3);
-  --atomize-button-padding-md: var(--atomize-spacing-3) var(--atomize-spacing-4);
-  --atomize-button-padding-lg: var(--atomize-spacing-4) var(--atomize-spacing-6);
+  --atomize-button-padding-md: var(--atomize-spacing-2-5) var(--atomize-spacing-4);
+  --atomize-button-padding-lg: var(--atomize-spacing-3) var(--atomize-spacing-5);
+  --atomize-button-padding-xl: var(--atomize-spacing-4) var(--atomize-spacing-6);
   --atomize-button-radius: var(--atomize-radius-lg);
   
-  /* Input */
-  --atomize-input-padding: var(--atomize-spacing-3) var(--atomize-spacing-4);
-  --atomize-input-radius: var(--atomize-radius-md);
+  --atomize-input-padding: var(--atomize-spacing-2-5) var(--atomize-spacing-3-5);
+  --atomize-input-radius: var(--atomize-radius-lg);
   --atomize-input-border: 1px solid var(--atomize-border-primary);
   
-  /* Card */
-  --atomize-card-padding: var(--atomize-spacing-6);
-  --atomize-card-radius: var(--atomize-radius-xl);
+  --atomize-card-padding: var(--atomize-spacing-5);
+  --atomize-card-padding-lg: var(--atomize-spacing-6);
+  --atomize-card-radius: var(--atomize-radius-2xl);
   --atomize-card-border: 1px solid var(--atomize-border-primary);
   
-  /* Touch Targets (44×44px minimum - iOS) */
   --atomize-touch-target-min: 44px;
 }
 
@@ -184,35 +299,57 @@
    =========================== */
 .dark {
   /* Surface Colors (Dark) */
-  --atomize-surface-primary: var(--atomize-neutral-950);
-  --atomize-surface-secondary: var(--atomize-neutral-900);
-  --atomize-surface-tertiary: var(--atomize-neutral-800);
-  --atomize-surface-elevated: var(--atomize-neutral-900);
-  --atomize-surface-overlay: oklch(1 0 0 / 10%);
+  --atomize-surface-primary: oklch(0.13 0.015 260);
+  --atomize-surface-secondary: oklch(0.16 0.018 258);
+  --atomize-surface-tertiary: oklch(0.20 0.020 256);
+  --atomize-surface-elevated: oklch(0.18 0.018 258);
+  --atomize-surface-overlay: oklch(0 0 0 / 70%);
+  --atomize-surface-brand: oklch(0.20 0.06 262);
+  --atomize-surface-brand-subtle: oklch(0.18 0.04 262);
   
   /* Text Colors (Dark) */
-  --atomize-text-primary: var(--atomize-neutral-50);
-  --atomize-text-secondary: var(--atomize-neutral-400);
-  --atomize-text-tertiary: var(--atomize-neutral-500);
-  --atomize-text-disabled: var(--atomize-neutral-600);
-  --atomize-text-inverted: var(--atomize-neutral-950);
+  --atomize-text-primary: oklch(0.96 0.005 260);
+  --atomize-text-secondary: oklch(0.70 0.015 260);
+  --atomize-text-tertiary: oklch(0.55 0.015 260);
+  --atomize-text-disabled: oklch(0.40 0.010 260);
+  --atomize-text-inverted: oklch(0.13 0.015 260);
+  --atomize-text-brand: var(--atomize-primary-400);
+  --atomize-text-link: var(--atomize-primary-400);
+  --atomize-text-success: var(--atomize-success-400);
+  --atomize-text-warning: var(--atomize-warning-400);
+  --atomize-text-error: var(--atomize-error-400);
   
   /* Border Colors (Dark) */
-  --atomize-border-primary: oklch(1 0 0 / 10%);
-  --atomize-border-secondary: oklch(1 0 0 / 5%);
-  --atomize-border-focus: var(--atomize-neutral-50);
+  --atomize-border-primary: oklch(0.30 0.020 258);
+  --atomize-border-secondary: oklch(0.25 0.015 258);
+  --atomize-border-focus: var(--atomize-primary-400);
+  --atomize-border-brand: var(--atomize-primary-500);
   
   /* Interactive Colors (Dark) */
-  --atomize-interactive-primary: var(--atomize-neutral-50);
-  --atomize-interactive-primary-hover: var(--atomize-neutral-100);
-  --atomize-interactive-secondary: var(--atomize-neutral-800);
-  --atomize-interactive-secondary-hover: var(--atomize-neutral-700);
+  --atomize-interactive-primary: var(--atomize-primary-500);
+  --atomize-interactive-primary-hover: var(--atomize-primary-400);
+  --atomize-interactive-primary-active: var(--atomize-primary-300);
+  --atomize-interactive-secondary: oklch(0.25 0.020 258);
+  --atomize-interactive-secondary-hover: oklch(0.30 0.025 258);
+  --atomize-interactive-accent: var(--atomize-accent-400);
+  --atomize-interactive-accent-hover: var(--atomize-accent-300);
   
-  /* Shadows (Dark - more prominent) */
+  /* Gradients (Dark) */
+  --atomize-gradient-primary: linear-gradient(135deg, var(--atomize-primary-600) 0%, var(--atomize-primary-800) 100%);
+  --atomize-gradient-secondary: linear-gradient(135deg, var(--atomize-secondary-500) 0%, var(--atomize-secondary-700) 100%);
+  --atomize-gradient-accent: linear-gradient(135deg, var(--atomize-accent-500) 0%, var(--atomize-accent-700) 100%);
+  --atomize-gradient-hero: linear-gradient(135deg, oklch(0.18 0.06 262) 0%, oklch(0.15 0.04 180) 50%, oklch(0.16 0.05 25) 100%);
+  --atomize-gradient-mesh: radial-gradient(at 40% 20%, oklch(0.25 0.08 262) 0px, transparent 50%), 
+                           radial-gradient(at 80% 0%, oklch(0.22 0.06 180) 0px, transparent 50%),
+                           radial-gradient(at 0% 50%, oklch(0.20 0.05 25) 0px, transparent 50%);
+  
+  /* Shadows (Dark) */
   --atomize-shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.3);
-  --atomize-shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.4), 0 1px 2px -1px oklch(0 0 0 / 0.4);
-  --atomize-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.4), 0 2px 4px -2px oklch(0 0 0 / 0.4);
-  --atomize-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.5), 0 4px 6px -4px oklch(0 0 0 / 0.5);
-  --atomize-shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.5), 0 8px 10px -6px oklch(0 0 0 / 0.5);
+  --atomize-shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.4), 0 1px 2px -1px oklch(0 0 0 / 0.3);
+  --atomize-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.4), 0 2px 4px -2px oklch(0 0 0 / 0.3);
+  --atomize-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.5), 0 4px 6px -4px oklch(0 0 0 / 0.4);
+  --atomize-shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.5), 0 8px 10px -6px oklch(0 0 0 / 0.4);
   --atomize-shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.6);
+  --atomize-shadow-glow-primary: 0 0 30px -5px var(--atomize-primary-500);
+  --atomize-shadow-glow-accent: 0 0 30px -5px var(--atomize-accent-500);
 }
